@@ -20,6 +20,16 @@ cron.schedule("*/3 * * * *", () => {
       }
     );
   }, 30000);
+  setTimeout(() => {
+    request(
+      "http://147.50.227.164:4001/yeekee5",
+      function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+          console.log("done yeekee5");
+        } else console.log("fail yeekee5");
+      }
+    );
+  }, 30000);
 });
 
 app.listen(5000, () => {
