@@ -4,7 +4,7 @@ const app = express();
 
 var cron = require("node-cron");
 
-cron.schedule("*/1 * * * *", () => {
+cron.schedule("*/1.3 * * * *", () => {
   request("http://147.50.227.164:4000/huay", function (error, response, body) {
     if (!error && response.statusCode == 200) {
       console.log("done huay");
@@ -19,7 +19,7 @@ cron.schedule("*/1 * * * *", () => {
         } else console.log("fail yeekee");
       }
     );
-  }, 30000);
+  }, 20000);
   setTimeout(() => {
     request(
       "http://147.50.227.164:4001/yeekee5",
@@ -29,7 +29,7 @@ cron.schedule("*/1 * * * *", () => {
         } else console.log("fail yeekee5");
       }
     );
-  }, 60000);
+  }, 30000);
 });
 
 app.listen(5000, () => {
